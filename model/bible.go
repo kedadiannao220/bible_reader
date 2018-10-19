@@ -1,11 +1,22 @@
 package model
 
-var allBooks []BibleBook
+import (
+	"strconv"
+)
 
 func ConvertBookID(str string) int {
-	book, err := FindBookByName(str)
+	var book BibleBook
+
+	ID, err := strconv.Atoi(str)
 	if err != nil {
-		logger.Fatal("fail to query book by", str, err.Error())
+		book, err = FindBookByName(str)
+	} else {
+		book, err = FindBookByID(ID)
 	}
+
+	if err != nil {
+		logger.Fatal("fail to query book by ", str, err.Error())
+	}
+
 	return book.ID
 }

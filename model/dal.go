@@ -9,6 +9,10 @@ func FindBookByName(name string) (book BibleBook, err error) {
 	err = globalDB.Table(BibleBook{}.TableName()).Where("litter = ? or name = ?", name, name).Find(&book).Error
 	return
 }
+func FindBookByID(id int) (book BibleBook, err error) {
+	err = globalDB.Table(BibleBook{}.TableName()).Where("id  = ?", id).Find(&book).Error
+	return
+}
 
 func FindTextByBookAndChapter(name, chapter int) (bibleInfo []BibleInfo, err error) {
 	err = globalDB.Table("bible_text text").Select("book.name, book.litter,text.orig_chapter as chapter,text.orig_verse as verse,text.text").
