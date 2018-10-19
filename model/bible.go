@@ -1,4 +1,4 @@
-package main
+package model
 
 var allBooks []BibleBook
 

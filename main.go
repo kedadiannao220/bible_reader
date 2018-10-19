@@ -1,8 +1,11 @@
 package main
 
-import "kedadiannao220/bible_reader/cmd"
+import (
+	"kedadiannao220/bible_reader/cmd"
+	"kedadiannao220/bible_reader/model"
+)
 
 func main() {
-	Init()
+	model.Init()
 	cmd.Execute()
 }
