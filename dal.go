@@ -1,4 +1,4 @@
-package bible_reader
+package main
 
 func FindBookList() (books []BibleBook, err error) {
 	err = globalDB.Table(BibleBook{}.TableName()).Find(&books).Error

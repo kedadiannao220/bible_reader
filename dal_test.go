@@ -1,4 +1,4 @@
-package bible_reader
+package main
 
 import (
 	"testing"

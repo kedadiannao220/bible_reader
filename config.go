@@ -1,4 +1,4 @@
-package bible_reader
+package main
 
 import (
 	"github.com/jinzhu/gorm"
@@ -22,6 +22,5 @@ func Init() {
 	if err != nil {
 		logger.Panic(err)
 	}
-
 	globalDB = db
 }
