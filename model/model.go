@@ -17,6 +17,7 @@ type (
 	}
 
 	BibleInfo struct {
+		TextID  string `gorm:"column:id" json:"id"`
 		Name    string `gorm:"column:name" json:"name"`
 		Litter  string `gorm:"column:litter" json:"litter"`
 		Chapter int    `gorm:"column:chapter" json:"chapter"`

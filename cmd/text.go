@@ -56,14 +56,13 @@ func TextAction(cmd *cobra.Command, args []string) {
 	}
 
 	table := tablewriter.NewWriter(os.Stdout)
-	table.SetHeader([]string{"书卷", "简称", "章", "节", "内容"})
+	table.SetHeader([]string{"编号", "简称", "章：节", "内容"})
 	table.SetColumnColor(tablewriter.Colors{tablewriter.Bold, tablewriter.FgHiBlackColor},
-		tablewriter.Colors{tablewriter.Bold, tablewriter.FgHiBlackColor},
 		tablewriter.Colors{tablewriter.Bold, tablewriter.FgHiBlackColor},
 		tablewriter.Colors{tablewriter.Bold, tablewriter.FgHiBlackColor},
 		tablewriter.Colors{tablewriter.Bold, tablewriter.FgCyanColor})
 	for _, book := range texts {
-		val := []string{book.Name, book.Litter, fmt.Sprintf("%d", book.Chapter), fmt.Sprintf("%d", book.Verse), book.Text}
+		val := []string{book.TextID, book.Litter, fmt.Sprintf("%d:%d", book.Chapter, book.Verse), book.Text}
 		table.Append(val)
 	}
 	table.Render()

@@ -25,6 +25,16 @@ ConvertBookID
 
   - -v verse (int)
 
-  - -l like query (string)
+  - -q like query (string)
+
+### 样式输出
+样式输出引入了tabwrite的库
+
+### TODO
+- 字体大小设置
+- copy当前经节的圣经
+- 制作经文卡片
+- 加载一些图片库
+
 
 
