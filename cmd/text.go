@@ -6,6 +6,8 @@ import (
 	"github.com/spf13/cobra"
 	"kedadiannao220/bible_reader/model"
 	"os"
+	"strconv"
+	"strings"
 )
 
 func GetTextCommand() *cobra.Command {
@@ -16,8 +18,8 @@ func GetTextCommand() *cobra.Command {
 	}
 
 	textCommand.Flags().StringVarP(&book, "book", "b", "", TextBookUsage)
-	textCommand.Flags().IntVarP(&chapter, "chapter", "c", 0, TextBookUsage)
-	textCommand.Flags().IntVarP(&verse, "verse", "v", 0, TextBookUsage)
+	textCommand.Flags().IntVarP(&chapter, "chapter", "c", 0, TextBookChapterUsage)
+	textCommand.Flags().StringVarP(&verse, "verse", "v", "", TextBookChapterVerseUsage)
 	textCommand.Flags().StringVarP(&qword, "query", "q", "", TextBookUsage)
 
 	return textCommand
@@ -29,11 +31,46 @@ func TextAction(cmd *cobra.Command, args []string) {
 	var err error
 
 	if qword == "" {
-		if book != "" && chapter != 0 && verse != 0 {
-			texts, err = model.FindTextByBookAndChapterAndVerse(model.ConvertBookID(book), chapter, verse)
+		if book != "" && chapter != 0 && verse != "" {
+			verse = strings.Replace(verse, "，", ",", -1)
+			verse = strings.Replace(verse, "_", "-", -1)
+			verse = strings.Replace(verse, "=", "-", -1)
+			verse = strings.Replace(verse, "——", "-", -1)
+
+			var ver []int
+			if strings.Contains(verse, "-") {
+				verstr := strings.Split(verse, "-")
+				start, err := strconv.Atoi(verstr[0])
+				if err != nil {
+					fmt.Println(err.Error())
+					return
+				}
+
+				end, err := strconv.Atoi(verstr[1])
+				if err != nil {
+					fmt.Println(err.Error())
+					return
+				}
+
+				for i := start; i <= end; i++ {
+					ver = append(ver, i)
+				}
+			}
+			if strings.Contains(verse, ",") {
+				for _, str := range strings.Split(verse, ",") {
+					start, err := strconv.Atoi(str)
+					if err != nil {
+						fmt.Println(err.Error())
+						return
+					}
+					ver = append(ver, start)
+				}
+			}
+
+			texts, err = model.FindTextByBookAndChapterAndVerse(model.ConvertBookID(book), chapter, ver)
 		}
 
-		if book != "" && chapter != 0 && verse == 0 {
+		if book != "" && chapter != 0 && verse == "" {
 			texts, err = model.FindTextByBookAndChapter(model.ConvertBookID(book), chapter)
 		}
 	} else {

@@ -6,13 +6,15 @@ import (
 	"os"
 )
 
-var book, qword string
-var chapter, verse int
+var book, qword, verse string
+var chapter int
 var all bool
 
 const (
-	BookListUsage = "bible_reader book -l"
-	TextBookUsage = "bible_reader text -b 创"
+	BookListUsage             = "bible_reader book -l"
+	TextBookUsage             = "bible_reader text -b 创"
+	TextBookChapterUsage      = "bible_reader text -b 创 -c 1"
+	TextBookChapterVerseUsage = "bible_reader text -b 创 -c 1 -v (1-3或 1,3,5,7 "
 )
 
 var rootCmd = &cobra.Command{
@@ -22,7 +24,6 @@ var rootCmd = &cobra.Command{
 		// Do Stuff Here
 	},
 }
-
 
 func Execute() {
 	rootCmd.AddCommand(GetBookCommand())

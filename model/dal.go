@@ -21,10 +21,10 @@ func FindTextByBookAndChapter(name, chapter int) (bibleInfo []BibleInfo, err err
 		Find(&bibleInfo).Error
 	return
 }
-func FindTextByBookAndChapterAndVerse(name, chapter, verse int) (bibleInfo []BibleInfo, err error) {
+func FindTextByBookAndChapterAndVerse(name, chapter int, verse []int) (bibleInfo []BibleInfo, err error) {
 	err = globalDB.Table("bible_text text").Select("book.name, book.litter,text.orig_chapter as chapter,text.orig_verse as verse,text.text,text.id").
 		Joins("left join bible_book  book on book.id = text.orig_book_index ").
-		Where("text.orig_chapter =  ? and text.orig_verse = ? and book.id = ?", chapter, verse, name).
+		Where("text.orig_chapter =  ? and text.orig_verse in (?) and book.id = ?", chapter, verse, name).
 		Find(&bibleInfo).Error
 	return
 }
