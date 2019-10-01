@@ -1,0 +1,55 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "f7M/c3JpA+2BnvJFLF7n+8GE9E8=",
+			"path": "github.com/jinzhu/gorm",
+			"revision": "409121d9e394922787885b001d148a05e3a42b6c",
+			"revisionTime": "2018-07-26T23:43:49Z"
+		},
+		{
+			"checksumSHA1": "4VZ1gLZHMumRjV3fclS1aX8S1aQ=",
+			"path": "github.com/jinzhu/gorm/dialects/sqlite",
+			"revision": "409121d9e394922787885b001d148a05e3a42b6c",
+			"revisionTime": "2018-07-26T23:43:49Z"
+		},
+		{
+			"checksumSHA1": "4eelJOSLZoDzLuaJvgilOBVNovU=",
+			"path": "github.com/jinzhu/inflection",
+			"revision": "04140366298a54a039076d798123ffa108fff46c",
+			"revisionTime": "2018-03-08T03:36:59Z"
+		},
+		{
+			"checksumSHA1": "qR7D38Zmn9TPUvGn64k+r0+Kq1c=",
+			"path": "github.com/mattn/go-runewidth",
+			"revision": "703b5e6b11ae25aeb2af9ebb5d5fdf8fa2575211",
+			"revisionTime": "2018-12-18T00:06:49Z"
+		},
+		{
+			"checksumSHA1": "lzwS5eM8uma8qZ14Zy1RTOyLTxA=",
+			"path": "github.com/mattn/go-sqlite3",
+			"revision": "5cd1ba58664ccf49ec87604458165e96a5d31647",
+			"revisionTime": "2018-10-13T01:15:51Z"
+		},
+		{
+			"checksumSHA1": "C2jnBks3LctebwDmLMoq/zYZex0=",
+			"path": "github.com/olekukonko/tablewriter",
+			"revision": "cc27d85e17cec9768d2ac401ea5d619a9628f16d",
+			"revisionTime": "2019-06-18T03:32:46Z"
+		},
+		{
+			"checksumSHA1": "1nDHkiFm79ufUiLc80zG1Y/L9cg=",
+			"path": "github.com/spf13/cobra",
+			"revision": "8d114be902bc9f08717804830a55c48378108a28",
+			"revisionTime": "2018-09-15T22:22:04Z"
+		},
+		{
+			"checksumSHA1": "ca/xiPs0IJikRcMg/YGIra+dvu8=",
+			"path": "github.com/spf13/pflag",
+			"revision": "972238283c0625cf3e881de7699ba8f2524c340a",
+			"revisionTime": "2019-08-14T00:10:55Z"
+		}
+	],
+	"rootPath": "kedadiannao220/bible_reader/src"
+}
